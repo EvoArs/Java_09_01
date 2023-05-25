@@ -12,6 +12,7 @@ public class RadioTest {
         int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест минимальной громкости
     public void radioVolumeMin() {
         Radio volume = new Radio();
@@ -20,6 +21,7 @@ public class RadioTest {
         int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест максимальной громкости
     public void radioVolumeMax() {
         Radio volume = new Radio();
@@ -28,6 +30,7 @@ public class RadioTest {
         int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест установки громкости ниже минимальной
     public void radioSetVolumeOverMin() {
         Radio volume = new Radio();
@@ -36,6 +39,7 @@ public class RadioTest {
         int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест установки громкости выше максимальной
     public void radioSetVolumeOverMax() {
         Radio volume = new Radio();
@@ -44,6 +48,7 @@ public class RadioTest {
         int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест повышения громкости
     public void radioSwitchVolumeUp() {
         Radio channel = new Radio();
@@ -53,6 +58,7 @@ public class RadioTest {
         int actual = channel.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест понижения громкости
     public void radioSwitchVolumeDown() {
         Radio channel = new Radio();
@@ -62,6 +68,7 @@ public class RadioTest {
         int actual = channel.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест повышения громкости выше максимальной
     public void radioSwitchVolumeOverUp() {
         Radio channel = new Radio();
@@ -71,6 +78,7 @@ public class RadioTest {
         int actual = channel.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест понижения громкости ниже минимальной
     public void radioSwitchVolumeOverDown() {
         Radio channel = new Radio();
@@ -91,6 +99,7 @@ public class RadioTest {
         int actual = volume.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест минимальной станции
     public void radioChannelMin() {
         Radio volume = new Radio();
@@ -99,6 +108,7 @@ public class RadioTest {
         int actual = volume.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест максимальной станции
     public void radioChannelMax() {
         Radio volume = new Radio();
@@ -107,6 +117,7 @@ public class RadioTest {
         int actual = volume.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест установки станции ниже минимальной
     public void radioSetChannelOverMin() {
         Radio volume = new Radio();
@@ -115,6 +126,7 @@ public class RadioTest {
         int actual = volume.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест установки станции выше максимальной
     public void radioSetChannelOverMax() {
         Radio volume = new Radio();
@@ -123,6 +135,7 @@ public class RadioTest {
         int actual = volume.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест повышения станции
     public void radioSwitchChannelUp() {
         Radio channel = new Radio();
@@ -132,6 +145,7 @@ public class RadioTest {
         int actual = channel.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест понижения станции
     public void radioSwitchChannelDown() {
         Radio channel = new Radio();
@@ -141,6 +155,7 @@ public class RadioTest {
         int actual = channel.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест повышения станции выше максимальной
     public void radioSwitchChannelOverUp() {
         Radio channel = new Radio();
@@ -150,6 +165,7 @@ public class RadioTest {
         int actual = channel.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test // Тест понижения станции ниже минимальной
     public void radioSwitchChannelOverDown() {
         Radio channel = new Radio();

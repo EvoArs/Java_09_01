@@ -23,14 +23,15 @@ public class Radio {
             radioVolume = radioVolume + 1;
         }
     }
+
     public void radioVolumeSwitchDown() {
         if (radioVolume > radioVolumeMin) {
             radioVolume = radioVolume - 1;
         }
     }
 
-// Каналы
-private int radioChannel;
+    // Каналы
+    private int radioChannel;
     private int radioChannelMin = 0;
     private int radioChannelMax = 9;
 
@@ -53,6 +54,7 @@ private int radioChannel;
             radioChannel = radioChannel + 1;
         }
     }
+
     public void radioChannelSwitchDown() {
         if (radioChannel > radioChannelMin) {
             radioChannel = radioChannel - 1;
