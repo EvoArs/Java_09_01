@@ -1,10 +1,7 @@
 public class Radio {
     private int radioChannel;
-    private int radioChannelMin;
-    private int radioChannelMax;
     private int radioVolume;
-    private int radioVolumeMin;
-    private int radioVolumeMax;
+
 
 
     // Громкость
