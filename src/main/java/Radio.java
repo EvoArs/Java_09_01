@@ -1,10 +1,10 @@
 public class Radio {
     private int radioChannel;
-    private int radioChannelMin = 0;
-    private int radioChannelMax = 9;
+    private int radioChannelMin;
+    private int radioChannelMax;
     private int radioVolume;
-    private int radioVolumeMin = 0;
-    private int radioVolumeMax = 100;
+    private int radioVolumeMin;
+    private int radioVolumeMax;
 
 
     // Громкость
@@ -13,10 +13,10 @@ public class Radio {
     }
 
     public void setRadioVolume(int newRadioVolume) {
-        if (newRadioVolume < radioVolumeMin) {
+        if (newRadioVolume < 0) {
             return;
         }
-        if (newRadioVolume > radioVolumeMax) {
+        if (newRadioVolume > 100) {
             return;
         }
         this.radioVolume = newRadioVolume;
@@ -24,18 +24,18 @@ public class Radio {
 
     // Кнопка управления звуком
     public void radioVolumeSwitchNext() {
-        if (radioVolume != radioVolumeMax) {
+        if (radioVolume != 100) {
             radioVolume++;
         } else {
-            radioVolume = radioVolumeMin;
+            radioVolume = 0;
         }
     }
 
     public void radioVolumeSwitchPrev() {
-        if (radioVolume != radioVolumeMin) {
+        if (radioVolume != 0) {
             radioVolume--;
         } else {
-            radioVolume = radioVolumeMax;
+            radioVolume = 100;
         }
     }
 
@@ -45,10 +45,10 @@ public class Radio {
     }
 
     public void setRadioChannel(int newRadioChannel) {
-        if (newRadioChannel < radioChannelMin) {
+        if (newRadioChannel < 0) {
             return;
         }
-        if (newRadioChannel > radioChannelMax) {
+        if (newRadioChannel > 9) {
             return;
         }
         this.radioChannel = newRadioChannel;
@@ -56,18 +56,18 @@ public class Radio {
 
     // Кнопка управления звуком
     public void radioChannelSwitchNext() {
-        if (radioChannel != radioChannelMax) {
+        if (radioChannel != 9) {
             radioChannel++;
         } else {
-            radioChannel = radioChannelMin;
+            radioChannel = 0;
         }
     }
 
     public void radioChannelSwitchPrev() {
-        if (radioChannel != radioChannelMin) {
+        if (radioChannel != 0) {
             radioChannel--;
         } else {
-            radioChannel = radioChannelMax;
+            radioChannel = 9;
         }
     }
 }
