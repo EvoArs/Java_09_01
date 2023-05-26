@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     // Тесты громкости
+
     @Test // Тест текущей громкости
     public void radioVolumeAll() {
         Radio volume = new Radio();
@@ -13,26 +14,8 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test // Тест минимальной громкости
-    public void radioVolumeMin() {
-        Radio volume = new Radio();
-        volume.setRadioVolume(0);
-        int expected = 0;
-        int actual = volume.getRadioVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест максимальной громкости
-    public void radioVolumeMax() {
-        Radio volume = new Radio();
-        volume.setRadioVolume(100);
-        int expected = 100;
-        int actual = volume.getRadioVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест установки громкости ниже минимальной
-    public void radioSetVolumeOverMin() {
+    @Test // Тест граничныйх значений
+    public void radioVolumeBoundaryMin1() {
         Radio volume = new Radio();
         volume.setRadioVolume(-1);
         int expected = 0;
@@ -40,140 +23,192 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test // Тест установки громкости выше максимальной
-    public void radioSetVolumeOverMax() {
+    @Test // Тест граничныйх значений
+    public void radioVolumeBoundaryMin2() {
         Radio volume = new Radio();
-        volume.setRadioVolume(110);
+        volume.setRadioVolume(0);
+        int expected = 0;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioVolumeBoundaryMin3() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(1);
+        int expected = 1;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioVolumeBoundaryMax1() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(99);
+        int expected = 99;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioVolumeBoundaryMax2() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(100);
         int expected = 100;
         int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test // Тест повышения громкости
-    public void radioSwitchVolumeUp() {
-        Radio channel = new Radio();
-        channel.setRadioVolume(60);
-        channel.radioVolumeSwitchUp();
-        int expected = 61;
-        int actual = channel.getRadioVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест понижения громкости
-    public void radioSwitchVolumeDown() {
-        Radio channel = new Radio();
-        channel.setRadioVolume(50);
-        channel.radioVolumeSwitchDown();
-        int expected = 49;
-        int actual = channel.getRadioVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест повышения громкости выше максимальной
-    public void radioSwitchVolumeOverUp() {
-        Radio channel = new Radio();
-        channel.setRadioVolume(101);
-        channel.radioVolumeSwitchUp();
-        int expected = 100;
-        int actual = channel.getRadioVolume();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест понижения громкости ниже минимальной
-    public void radioSwitchVolumeOverDown() {
-        Radio channel = new Radio();
-        channel.setRadioVolume(-1);
-        channel.radioVolumeSwitchDown();
+    @Test // Тест граничныйх значений
+    public void radioVolumeBoundaryMax3() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(101);
         int expected = 0;
-        int actual = channel.getRadioVolume();
+        int actual = volume.getRadioVolume();
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test // Тест кнопки повышения громкости
+    public void radioVolumeSwitchNext() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(50);
+        volume.radioVolumeSwitchNext();
+        int expected = 51;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки повышения громкости
+    public void radioVolumeSwitchNextMax() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(100);
+        volume.radioVolumeSwitchNext();
+        int expected = 0;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки понижения громкости
+    public void radioVolumeSwitchPrev() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(50);
+        volume.radioVolumeSwitchPrev();
+        int expected = 49;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки понижения громкости
+    public void radioVolumeSwitchPrevMin() {
+        Radio volume = new Radio();
+        volume.setRadioVolume(0);
+        volume.radioVolumeSwitchPrev();
+        int expected = 100;
+        int actual = volume.getRadioVolume();
+        Assertions.assertEquals(expected, actual);
+    }
 
     // Тесты каналов
     @Test // Тест текущей станции
     public void radioChannelAll() {
-        Radio volume = new Radio();
-        volume.setRadioChannel(3);
-        int expected = 3;
-        int actual = volume.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест минимальной станции
-    public void radioChannelMin() {
-        Radio volume = new Radio();
-        volume.setRadioChannel(0);
-        int expected = 0;
-        int actual = volume.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест максимальной станции
-    public void radioChannelMax() {
-        Radio volume = new Radio();
-        volume.setRadioChannel(9);
-        int expected = 9;
-        int actual = volume.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест установки станции ниже минимальной
-    public void radioSetChannelOverMin() {
-        Radio volume = new Radio();
-        volume.setRadioChannel(-1);
-        int expected = 0;
-        int actual = volume.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест установки станции выше максимальной
-    public void radioSetChannelOverMax() {
-        Radio volume = new Radio();
-        volume.setRadioChannel(10);
-        int expected = 9;
-        int actual = volume.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест повышения станции
-    public void radioSwitchChannelUp() {
-        Radio channel = new Radio();
-        channel.setRadioChannel(5);
-        channel.radioChannelSwitchUp();
-        int expected = 6;
-        int actual = channel.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест понижения станции
-    public void radioSwitchChannelDown() {
         Radio channel = new Radio();
         channel.setRadioChannel(3);
-        channel.radioChannelSwitchDown();
-        int expected = 2;
+        int expected = 3;
         int actual = channel.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test // Тест повышения станции выше максимальной
-    public void radioSwitchChannelOverUp() {
+    @Test // Тест граничныйх значений
+    public void radioChannelBoundaryMin1() {
         Radio channel = new Radio();
-        channel.setRadioChannel(10);
-        channel.radioChannelSwitchUp();
-        int expected = 9;
-        int actual = channel.getRadioChannel();
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test // Тест понижения станции ниже минимальной
-    public void radioSwitchChannelOverDown() {
-        Radio channel = new Radio();
-        channel.setRadioChannel(-1);
-        channel.radioChannelSwitchDown();
+        channel.setRadioChannel(0);
         int expected = 0;
         int actual = channel.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test // Тест граничныйх значений
+    public void radioChannelBoundaryMin2() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(-1);
+        int expected = 0;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioChannelBoundaryMin3() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(1);
+        int expected = 1;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioChannelBoundaryMax1() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(8);
+        int expected = 8;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioChannelBoundaryMax2() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(9);
+        int expected = 9;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест граничныйх значений
+    public void radioChannelBoundaryMax3() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(10);
+        int expected = 0;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки переключения каналла вверх
+    public void radioChannelSwitchNext() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(4);
+        channel.radioChannelSwitchNext();
+        int expected = 5;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки переключения каналла вверх
+    public void radioChannelSwitchNextMax() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(9);
+        channel.radioChannelSwitchNext();
+        int expected = 0;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки переключения каналла вниз
+    public void radioChannelSwitchPrev() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(5);
+        channel.radioChannelSwitchPrev();
+        int expected = 4;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test // Тест кнопки переключения каналла вниз
+    public void radioChannelSwitchPrevMin() {
+        Radio channel = new Radio();
+        channel.setRadioChannel(0);
+        channel.radioChannelSwitchPrev();
+        int expected = 9;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
 }

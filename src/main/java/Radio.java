@@ -1,63 +1,73 @@
 public class Radio {
-    // Громкость
+    private int radioChannel;
+    private int radioChannelMin = 0;
+    private int radioChannelMax = 9;
     private int radioVolume;
     private int radioVolumeMin = 0;
     private int radioVolumeMax = 100;
 
+
+    // Громкость
     public int getRadioVolume() {
         return radioVolume;
     }
 
     public void setRadioVolume(int newRadioVolume) {
         if (newRadioVolume < radioVolumeMin) {
-            newRadioVolume = radioVolumeMin;
+            return;
         }
         if (newRadioVolume > radioVolumeMax) {
-            newRadioVolume = radioVolumeMax;
+            return;
         }
-        radioVolume = newRadioVolume;
+        this.radioVolume = newRadioVolume;
     }
 
-    public void radioVolumeSwitchUp() {
-        if (radioVolume < radioVolumeMax) {
-            radioVolume = radioVolume + 1;
+    // Кнопка управления звуком
+    public void radioVolumeSwitchNext() {
+        if (radioVolume != radioVolumeMax) {
+            radioVolume++;
+        } else {
+            radioVolume = radioVolumeMin;
         }
     }
 
-    public void radioVolumeSwitchDown() {
-        if (radioVolume > radioVolumeMin) {
-            radioVolume = radioVolume - 1;
+    public void radioVolumeSwitchPrev() {
+        if (radioVolume != radioVolumeMin) {
+            radioVolume--;
+        } else {
+            radioVolume = radioVolumeMax;
         }
     }
 
     // Каналы
-    private int radioChannel;
-    private int radioChannelMin = 0;
-    private int radioChannelMax = 9;
-
     public int getRadioChannel() {
         return radioChannel;
     }
 
     public void setRadioChannel(int newRadioChannel) {
         if (newRadioChannel < radioChannelMin) {
-            newRadioChannel = radioChannelMin;
+            return;
         }
         if (newRadioChannel > radioChannelMax) {
-            newRadioChannel = radioChannelMax;
+            return;
         }
-        radioChannel = newRadioChannel;
+        this.radioChannel = newRadioChannel;
     }
 
-    public void radioChannelSwitchUp() {
-        if (radioChannel < radioChannelMax) {
-            radioChannel = radioChannel + 1;
+    // Кнопка управления звуком
+    public void radioChannelSwitchNext() {
+        if (radioChannel != radioChannelMax) {
+            radioChannel++;
+        } else {
+            radioChannel = radioChannelMin;
         }
     }
 
-    public void radioChannelSwitchDown() {
-        if (radioChannel > radioChannelMin) {
-            radioChannel = radioChannel - 1;
+    public void radioChannelSwitchPrev() {
+        if (radioChannel != radioChannelMin) {
+            radioChannel--;
+        } else {
+            radioChannel = radioChannelMax;
         }
     }
 }
