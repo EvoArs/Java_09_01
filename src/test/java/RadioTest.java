@@ -211,4 +211,13 @@ public class RadioTest {
         int actual = channel.getRadioChannel();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test // Тест каналов с заданными параметрами
+    public void radioChannelCountMinMax() {
+        Radio channel = new Radio(0, 45);
+
+
+        Assertions.assertEquals(0, channel.getRadioChannelMin());
+        Assertions.assertEquals(45, channel.getRadioChannelMax());
+    }
 }
