@@ -1,29 +1,30 @@
 public class Radio {
     private int radioChannel;
-    private int radioChannelMin = 0;
-    private int radioChannelMax = 9;
+    private int radioChannelMin;
+    private int radioChannelMax;
     private int radioVolume;
     private int radioVolumeMin = 0;
     private int radioVolumeMax = 100;
+
     // Каналы
-    public Radio(){
+    public Radio() {
         this.radioChannelMax = 9;
         this.radioChannelMin = 0;
     }
 
-    public Radio(int channelCountMin, int channelCountMax){
-        this.radioChannelMax = channelCountMax;
-        this.radioChannelMin = channelCountMin;
-        this.radioChannel = radioChannelMin;
+    public Radio(int channelCount) {
+        this.radioChannelMax = channelCount - 1;
 
     }
 
     public int getRadioChannel() {
         return radioChannel;
     }
+
     public int getRadioChannelMin() {
         return radioChannelMin;
     }
+
     public int getRadioChannelMax() {
         return radioChannelMax;
     }
@@ -54,6 +55,7 @@ public class Radio {
             radioChannel = radioChannelMax;
         }
     }
+
     // Громкость
     public int getRadioVolume() {
         return radioVolume;

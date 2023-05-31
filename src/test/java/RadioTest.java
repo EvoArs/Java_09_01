@@ -213,11 +213,27 @@ public class RadioTest {
     }
 
     @Test // Тест каналов с заданными параметрами
-    public void radioChannelCountMinMax() {
-        Radio channel = new Radio(0, 45);
-
-
-        Assertions.assertEquals(0, channel.getRadioChannelMin());
-        Assertions.assertEquals(45, channel.getRadioChannelMax());
+    public void radioChannelCountAll() {
+        Radio channel = new Radio(45);
+        channel.setRadioChannel(15);
+        int expected = 15;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test // Тест каналов с заданными параметрами минимум
+    public void radioChannelCountMin() {
+        Radio channel = new Radio(45);
+        channel.setRadioChannel(0);
+        int expected = 0;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test // Тест каналов с заданными параметрами максимум
+    public void radioChannelCountMax() {
+        Radio channel = new Radio(45);
+        channel.setRadioChannel(45);
+        int expected = 0;
+        int actual = channel.getRadioChannel();
+        Assertions.assertEquals(expected, actual);
     }
 }
