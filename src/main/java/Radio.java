@@ -22,17 +22,15 @@ public class Radio {
     public void radioVolumeSwitchNext() {
         if (radioVolume != 100) {
             radioVolume++;
-        } else {
-            radioVolume = 0;
         }
+        return;
     }
 
     public void radioVolumeSwitchPrev() {
         if (radioVolume != 0) {
             radioVolume--;
-        } else {
-            radioVolume = 100;
         }
+        return;
     }
 
     // Каналы
